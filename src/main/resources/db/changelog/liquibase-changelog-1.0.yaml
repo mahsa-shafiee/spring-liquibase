@@ -1,0 +1,65 @@
+databaseChangeLog:
+- changeSet:
+    id: 1616660750446-1
+    author: Mahsa (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: itemPK
+            name: item_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: item_name
+            type: VARCHAR(50)
+        - column:
+            constraints:
+              nullable: false
+            name: quantity
+            type: INT
+        - column:
+            constraints:
+              nullable: false
+            name: user_id
+            type: BIGINT
+        tableName: item
+- changeSet:
+    id: 1616660750446-2
+    author: Mahsa (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              primaryKey: true
+              primaryKeyName: userPK
+            name: user_id
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: first_name
+            type: VARCHAR(50)
+        - column:
+            name: last_name
+            type: VARCHAR(20)
+        tableName: user
+- changeSet:
+    id: 1616660750446-3
+    author: Mahsa (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: user_id
+        baseTableName: item
+        constraintName: FKh4epdoqikj4sfedlxcc9dwwnl
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: user_id
+        referencedTableName: user
+
